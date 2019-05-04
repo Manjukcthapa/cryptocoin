@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
+import  CurrenciesList from "./component/Currencies"
+import SearchBar from "./component/Search"
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      currencies: []
+      currencies: [],
+      filterCurrencies:[]
     };
   }
 
@@ -25,10 +28,23 @@ class App extends Component {
     })
   };
 
+  searchPersonName = (e) => {
+    this.setState({
+      filterCurrencies:this.state.currencies.filter((currency) => {
+         return currency.name.toUpperCase().includes(e.target.value.toUpperCase())
+     })
+    })
+  }
+
+
   render() {
     return (
       <div className="App">
+      <div>
         <h1 className="Header">Crypto Coin App</h1>
+        </div>
+        <SearchBar search = {this.searchPersonName}/>
+        <CurrenciesList data={this.state.filterCurrencies.length ? this.state.filterCurrencies : this.state.currencies}/>
       </div>
     );
   }
