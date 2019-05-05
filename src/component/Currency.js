@@ -3,7 +3,9 @@ import './Coin.css';
 const Currency = (props) => {
     return (
         <div class="currienies">
-             <header><h1 className="title ">{props.data.name}</h1></header>
+             <div className="coinnames">
+             <h1 className="title ">{props.data.name}</h1>
+             </div>
              <div>
             <p  className="listItem"><strong className="break">MarketCap:</strong>{props.data.marketCap}</p>
             <p  className="listItem">Price:{props.data.price}</p>

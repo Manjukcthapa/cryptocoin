@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import './App.css';
 import  CurrenciesList from "./component/Currencies"
 import SearchBar from "./component/Search"
+import Header from "./component/Header"
+import headerItem from "./component/HeaderItem"
+import HeaderItem from './component/HeaderItem';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       currencies: [],
-      filterCurrencies:[]
+      filterCurrencies:[],
+      show:true
+      
     };
   }
 
@@ -36,14 +41,26 @@ class App extends Component {
     })
   }
 
+  toddleDiv = () => {
+    const{show} = this.state;
+    this.setState({show:!show})
+  }
 
   render() {
     return (
       <div className="App">
       <div>
-        <h1 className="Header">Crypto Coin App</h1>
+      <Header toggleDiv={this.toddleDiv}/>
+     { this.state.show && <HeaderItem/>}
+      </div>
+      <div className="header1">
+      <div>
+        <h1 className="header">Crypto Coin App</h1>
         </div>
+        <div className="search">
         <SearchBar search = {this.searchPersonName}/>
+        </div>
+        </div>
         <CurrenciesList data={this.state.filterCurrencies.length ? this.state.filterCurrencies : this.state.currencies}/>
       </div>
     );
