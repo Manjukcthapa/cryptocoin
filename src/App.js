@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       currencies: [],
       filterCurrencies:[],
-      show:true
+      show:false
       
     };
   }
