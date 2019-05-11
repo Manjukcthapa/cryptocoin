@@ -19,11 +19,13 @@ class BitcoinForm extends React.Component {
 
     render() {
         return (
+            <div className="header3">
+            <div className="formheader">
+            <h1>Open Your Free Account Today!</h1>
+        </div>
             <form>
                 <div className="Form">
-                    <div className="formheader">
-                        <h1>Open Your Free Account Today!</h1>
-                    </div>
+                  
                     <input className="formlist"
                         type="text"
                         name="name"
@@ -66,6 +68,7 @@ class BitcoinForm extends React.Component {
                     <button className="formbotton">Create Free Account</button>
                 </div>
             </form>
+            </div>
 
         )
     }

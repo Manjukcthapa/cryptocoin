@@ -36,11 +36,7 @@
   }
 
   .Form{
-      border:1px solid black;
-      width:400px;
-      margin-left: 400px;
-      border-radius:20px;
-      margin-top: 50px;
+      margin-top: 0px;
   }
 
   .title {
@@ -62,12 +58,26 @@
 
 }
 
+
 .formheader{
     font-size:10px;
-    background: #E9A916;
     height:40px;
+    color:white;
+     /* background:#111A6C; */
+     margin-top: 0px;
+  
 
 }
+
+.header3{
+    width:400px;
+    margin-left: 400px;
+    border-radius:20px;
+    border:1px solid grey;
+    margin-top: 130px;
+    background:#1D7980;
+}
+
 .formbotton{
     width:200px;
     margin-top: 20px;
