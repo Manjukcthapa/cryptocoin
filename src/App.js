@@ -1,19 +1,41 @@
 import React, { Component } from 'react';
 import './App.css';
-import  CurrenciesList from "./component/Currencies"
+import CurrenciesList from "./component/Currencies"
 import SearchBar from "./component/Search"
 import Header from "./component/Header"
 import headerItem from "./component/HeaderItem"
-import HeaderItem from './component/HeaderItem';
+import HeaderItem from './component/HeaderItem'
+import BitcoinForm from "./component/BitcoinForm"
+import { Route, NavLink, Switch } from "react-router-dom"
+import Moment from 'react-moment';
+
+const Home = (props) => {
+  return (
+    <div>
+      <div>
+        <Header toggleDiv={props.toddleDiv} />
+        {props.state.show && <HeaderItem />}
+      </div>
+      <div className="header1">
+        <div>
+          <h1 className="header">Crypto Coin App</h1>
+        </div>
+        <div className="search">
+          <SearchBar search={props.searchPersonName} />
+        </div>
+      </div>
+      <CurrenciesList data={props.state.filterCurrencies.length ? props.state.filterCurrencies : props.state.currencies} />
+    </div>
+  )
+}
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       currencies: [],
-      filterCurrencies:[],
-      show:false
-      
+      filterCurrencies: [],
+      show: false
     };
   }
 
@@ -22,46 +44,72 @@ class App extends Component {
   }
 
   getCharacters = () => {
-    // feel free to research what this code is doing.
-    // At a high level we are calling an API to fetch some starwars data from the open web.
-    // We then take that data and resolve it our state.
     fetch(`https://api.udilia.com/coins/v1/cryptocurrencies?page=1&perPage=20`)
-    .then((data) => {
-       return data.json()
-    }).then((res) => {
-      this.setState({ currencies: res.currencies})
-    })
+      .then((data) => {
+        return data.json()
+      }).then((res) => {
+        this.setState({ currencies: res.currencies })
+      })
   };
 
   searchPersonName = (e) => {
     this.setState({
-      filterCurrencies:this.state.currencies.filter((currency) => {
-         return currency.name.toUpperCase().includes(e.target.value.toUpperCase())
-     })
+      filterCurrencies: this.state.currencies.filter((currency) => {
+        return currency.name.toUpperCase().includes(e.target.value.toUpperCase())
+      })
     })
   }
 
   toddleDiv = () => {
-    const{show} = this.state;
-    this.setState({show:!show})
+    const { show } = this.state;
+    this.setState({ show: !show })
   }
 
   render() {
     return (
       <div className="App">
-      <div>
-      <Header toggleDiv={this.toddleDiv}/>
-     { this.state.show && <HeaderItem/>}
-      </div>
-      <div className="header1">
-      <div>
-        <h1 className="header">Crypto Coin App</h1>
+        <div>
+
+          <nav>
+
+            <div className="navlink">
+           <span>Time: <Moment format="h:mm:ss a"> 
+                {new Date()}
+            </Moment> </span> 
+              {/* <p className="moment">Time : {new Date().getHours()} {":"} {new Date().getMinutes()}</p> */}
+            </div>
+
+            <div className="navlink">
+              <NavLink className="navlink" to="/signup">Users</NavLink>
+              <NavLink className="navlink" to="/Home">Home</NavLink>
+            </div>
+            <div className="navlink">
+            <Moment format="YYYY/MM/DD">
+                {new Date()}
+            </Moment>
+              {/* <p>{new Date().getDate()} /{new Date().getMonth() + 1} / {new Date().getFullYear()}
+              </p> */}
+            </div>
+          </nav>
+
+
+          <Route
+            exact path='/signup'
+            render=
+            {props =>
+              <BitcoinForm />
+            }
+          />
+
+          <Route
+            exact path='/Home'
+            render=
+            {() =>
+              <Home toddleDiv={this.toddleDiv} searchPersonName={this.searchPersonName} state={this.state}/>
+            }
+          />
+
         </div>
-        <div className="search">
-        <SearchBar search = {this.searchPersonName}/>
-        </div>
-        </div>
-        <CurrenciesList data={this.state.filterCurrencies.length ? this.state.filterCurrencies : this.state.currencies}/>
       </div>
     );
   }

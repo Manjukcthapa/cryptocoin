@@ -35,6 +35,14 @@
     
   }
 
+  .Form{
+      border:1px solid black;
+      width:400px;
+      margin-left: 400px;
+      border-radius:20px;
+      margin-top: 50px;
+  }
+
   .title {
     text-align: center;
     font-size: 24px;
@@ -42,6 +50,30 @@
     text-shadow: 1px, 1px, 5px #fff;
     text-decoration-line: underline;
   }
+
+.formlist {
+    width:200px;
+    margin-top: 20px;
+    height:30px;
+    border-radius:5px;
+    font-size: 15px;
+    
+
+
+}
+
+.formheader{
+    font-size:10px;
+    background: #E9A916;
+    height:40px;
+
+}
+.formbotton{
+    width:200px;
+    margin-top: 20px;
+    height:30px;
+    margin-bottom: 20px;
+}
 
   .input{
       height:30px;

@@ -5,7 +5,7 @@ const Header = (props) => {
 return(
     <div>
         <div>
-    <button className="Button" onlick={props.onClick} type="browser" onClick={props.toggleDiv}>browser</button>
+    <button className="Button" onClick={props.onClick} type="browser" onClick={props.toggleDiv}>browser</button>
     </div>
     </div>
 
