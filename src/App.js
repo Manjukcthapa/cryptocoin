@@ -20,9 +20,13 @@ const Home = (props) => {
       <div className="header1">
         <div>
           <h1 className="header">Crypto Coin App</h1>
+         
         </div>
         <div className="search">
-          <SearchBar search={props.searchPersonName} />
+          <SearchBar search={props.searchPersonName} />  
+        </div>
+        <div className="time">
+          <Clock/>
         </div>
       </div>
       <CurrenciesList data={props.state.filterCurrencies.length ? props.state.filterCurrencies : props.state.currencies} />
@@ -73,10 +77,6 @@ class App extends Component {
         <div>
 
           <nav>
-
-            <div className="navlink">
-            <Clock/>
-            </div>
             <div className="navlink navlink2">
               <NavLink className="navlink1" to="/signup">Users</NavLink>
               <NavLink className="navlink1" to="/Home">Home</NavLink>
