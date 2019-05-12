@@ -65,6 +65,7 @@ class BitcoinForm extends React.Component {
                         value={this.state.password}
                         onChange={this.handleInputChange}
                     />
+                    <br></br>
                     <button className="formbotton">Create Free Account</button>
                 </div>
             </form>

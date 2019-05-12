@@ -8,6 +8,7 @@ import HeaderItem from './component/HeaderItem'
 import BitcoinForm from "./component/BitcoinForm"
 import { Route, NavLink, Switch } from "react-router-dom"
 import Moment from 'react-moment';
+import Clock from "./component/Clock"
 
 const Home = (props) => {
   return (
@@ -35,7 +36,8 @@ class App extends Component {
     this.state = {
       currencies: [],
       filterCurrencies: [],
-      show: false
+      show: false,
+      curTime: null
     };
   }
 
@@ -73,22 +75,13 @@ class App extends Component {
           <nav>
 
             <div className="navlink">
-           <span>Time: <Moment format="h:mm:ss a"> 
-                {new Date()}
-            </Moment> </span> 
-              {/* <p className="moment">Time : {new Date().getHours()} {":"} {new Date().getMinutes()}</p> */}
+            <Clock/>
             </div>
-
             <div className="navlink">
               <NavLink className="navlink" to="/signup">Users</NavLink>
               <NavLink className="navlink" to="/Home">Home</NavLink>
             </div>
             <div className="navlink">
-            <Moment format="YYYY/MM/DD">
-                {new Date()}
-            </Moment>
-              {/* <p>{new Date().getDate()} /{new Date().getMonth() + 1} / {new Date().getFullYear()}
-              </p> */}
             </div>
           </nav>
 
