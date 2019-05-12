@@ -77,11 +77,9 @@ class App extends Component {
             <div className="navlink">
             <Clock/>
             </div>
-            <div className="navlink">
-              <NavLink className="navlink" to="/signup">Users</NavLink>
-              <NavLink className="navlink" to="/Home">Home</NavLink>
-            </div>
-            <div className="navlink">
+            <div className="navlink navlink2">
+              <NavLink className="navlink1" to="/signup">Users</NavLink>
+              <NavLink className="navlink1" to="/Home">Home</NavLink>
             </div>
           </nav>
 
