@@ -7,29 +7,29 @@ import forthImg from "../images/forthimg.jpg"
 const HeaderItem = (props) => {
     return(
         
-     <div className="mainhead" Name={props.className}>
+     <div className="mainhead" name={props.className}>
     <div className="textitem">
-      <img className="images" src={computer}/>
+      <img className="images" src={computer} alt=""/>
       <p>Happy 6th Birthday! DATA Alliance, Block Explorers and more</p>
-      <date>May 1, 2019</date>
+      <Date>May 1, 2019</Date>
       </div>
        
        <div className="textitem">
-    <img className="images" src={secondImg}/>
+    <img className="images" src={secondImg} alt=""/>
       <p>2019: Year of the DEX</p>
-      <date>April 4, 2019</date>
+      <Date>April 4, 2019</Date>
       </div>
 
       <div className="textitem">
-      <img className="images" src={thirdImg}/>
+      <img className="images" src={thirdImg} alt=""/>
       <p>How blockchain will disrupt the communication industry</p>
-      <date>March 22, 2019</date>
+      <Date>March 22, 2019</Date>
       </div>
       
       <div className="textitem">
-      <img  className="images" src={ forthImg}/> 
+      <img  className="images" src={ forthImg} alt=""/> 
       <p>Life After Trading: Cryptocurrencies In Everyday Life</p>
-      <date>March 15, 2019</date>
+      <Date>March 15, 2019</Date>
       </div>
       
         </div>

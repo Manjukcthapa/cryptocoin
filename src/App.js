@@ -3,11 +3,9 @@ import './App.css';
 import CurrenciesList from "./component/Currencies"
 import SearchBar from "./component/Search"
 import Header from "./component/Header"
-import headerItem from "./component/HeaderItem"
 import HeaderItem from './component/HeaderItem'
 import BitcoinForm from "./component/BitcoinForm"
-import { Route, NavLink, Switch } from "react-router-dom"
-import Moment from 'react-moment';
+import { Route, NavLink} from "react-router-dom"
 import Clock from "./component/Clock"
 import LogoImg from "./images/auto.png"
 
@@ -78,7 +76,7 @@ class App extends Component {
         <div>
 
           <nav>
-            <img classname="logo" src={LogoImg}/>
+            <img className="logo" src={LogoImg} alt=""/>
             <div className="navlink navlink2">
               <NavLink className="navlink1" to="/signup">Users</NavLink>
               <NavLink className="navlink1" to="/Home">Home</NavLink>
@@ -88,16 +86,14 @@ class App extends Component {
 
           <Route
             exact path='/signup'
-            render=
-            {props =>
+            render={props =>
               <BitcoinForm />
             }
           />
 
           <Route
             exact path='/Home'
-            render=
-            {() =>
+            render={() =>
               <Home toddleDiv={this.toddleDiv} searchPersonName={this.searchPersonName} state={this.state}/>
             }
           />
